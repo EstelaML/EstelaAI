@@ -1,7 +1,6 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import { AssistantPage, AudioToTextPage, ImageGenerationPage, OrthographyPage, ProsConsPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
-import { ImageTunningPage } from "../pages/image-generation/ImageTunningPage";
-import { DashboardLayout } from "../layouts/DashBoardLayout";
+import { Navigate, createBrowserRouter } from 'react-router-dom';
+import { OrthographyPage, ProsConsPage, ProsConsStreamPage, TranslatePage, TextToAudioPage, ImageGenerationPage, AssistantPage, AudioToTextPage, ImageTunningPage } from '../pages';
+import { DashboardLayout } from '../layouts/DashBoardLayout';
 
 export const menuRoutes = [
   {
@@ -69,19 +68,21 @@ export const menuRoutes = [
   },
 ];
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <DashboardLayout />,
     children: [
-        ...menuRoutes.map( route => ({
-          path: route.to,
-          element: route.component
+      ...menuRoutes.map( route => ({
+        path: route.to,
+        element: route.component
       })),
       {
         path: '',
-        element: <Navigate to={ menuRoutes[0].to }></Navigate>
+        element: <Navigate to={ menuRoutes[0].to } />
       }
+
     ],
   }
 ])
